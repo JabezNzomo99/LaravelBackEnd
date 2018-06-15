@@ -45,7 +45,7 @@ class InstructorController extends Controller
         $instructor->LastName=$request->input('LastName');
         $instructor->PhoneNumber=$request->input('PhoneNumber');
         $instructor->Email=$request->input('Email');
-        $instructor->PhotoURL=$request->input('PhotURL');
+        $instructor->PhotoURL=$request->input('PhotoURL');
         $instructor->save();
     }
 

@@ -19,7 +19,7 @@ class CreateInstructorsTable extends Migration
             $table->string('LastName');
             $table->string('PhoneNumber');
             $table->string('Email');
-            $table->string('PhotoURL');
+            $table->longText('PhotoURL');
             $table->timestamps();
         });
     }

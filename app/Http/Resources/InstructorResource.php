@@ -19,7 +19,7 @@ class InstructorResource extends JsonResource
             'LastName'=>$this->LastName,
             'PhoneNumber'=>$this->PhoneNumber,
             'Email'=>$this->Email,
-            'PhotoUrl'=>$this->PhotoUrl,
+            'PhotoUrl'=>$this->PhotoUrl
         ];
     }
 }
