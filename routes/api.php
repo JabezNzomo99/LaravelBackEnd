@@ -14,8 +14,8 @@ use Illuminate\Http\Request;
 */
 
 
-Route::post('/login','UserController@login');
-Route::post('/register','UserController@register');
+Route::post('/Login','UserController@login');
+Route::post('/Register','UserController@register');
 Route::get('/ShowUsers','UserController@index');
 Route::post('/AddInstructor','InstructorController@store');
 Route::post('/AddGym','GymController@store');
