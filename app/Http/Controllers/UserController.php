@@ -17,11 +17,12 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public $success_status=200;
+    public $error_status=401;
     public function login(){
         if(Auth::attempt(['UserName'=>request('UserName'),'password'=>request('password')])){
             $user=Auth::user();
             $success['token']=$user->createToken('MyApp')->accessToken;
-            return response()->json(['success'=>$success],$this->success_status);
+            return response()->json(['response'=>$success],$this->success_status);
         }
         else{
             return response()->json(['error'=>'Unauthorised'],401);
@@ -44,12 +45,12 @@ class UserController extends Controller
         $user=User::create($input);
         $success['token']=$user->createToken('MyApp')->accessToken;
         $success['FirstName']=$user->FirstName;
-        return response()->json(['success'=>$user],$this->success_status);
+        return response()->json(['response'=>$user],$this->success_status);
 
     }
     public function details(){
         $user=Auth::user();
-        return response()->json(['success'=>$user,$this->success_status]);
+        return response()->json(['response'=>$user,$this->success_status]);
     }
 
     public function index()

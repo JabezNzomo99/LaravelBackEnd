@@ -14,6 +14,8 @@ class InstructorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public  $success_status=200;
+    public $error_status=401;
     public function index()
     {
         //
@@ -48,7 +50,14 @@ class InstructorController extends Controller
         $instructor->Email=$request->input('Email');
         $instructor->Gender=$request->input('Gender');
         $instructor->PhotoURL=$request->input('PhotoURL');
-        $instructor->save();
+        if($instructor->save()){
+            return response()->json(['response'=>'Instructor has been added to the Gym Network successfully'],$this->success_status);
+        }
+        else{
+            return response()->json(['response'=>'An error occurred'],$this->error_status);
+
+        }
+
     }
 
     /**
