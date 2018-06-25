@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Instructors;
+use App\Http\Resources\WorkOutResource;
+use App\User;
+use App\WorkOutSessions;
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Http\Resources\InstructorResource;
 
-class InstructorController extends Controller
+class WorkOutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class InstructorController extends Controller
     public function index()
     {
         //
-        $instructors=Instructors::all();
-        return InstructorResource::collection($instructors);
+        $workout=WorkOutSessions::all();
+        return WorkOutResource::collection($workout);
     }
 
     /**
@@ -40,15 +40,15 @@ class InstructorController extends Controller
     public function store(Request $request)
     {
         //
-        $instructor=new Instructors();
-        $instructor->FirstName=$request->input('FirstName');
-        $instructor->LastName=$request->input('LastName');
-        $instructor->GymId=$request->input('GymId');
-        $instructor->PhoneNumber=$request->input('PhoneNumber');
-        $instructor->Email=$request->input('Email');
-        $instructor->Gender=$request->input('Gender');
-        $instructor->PhotoURL=$request->input('PhotoURL');
-        $instructor->save();
+        $workout=new WorkOutSessions();
+        $workout->user_id=$request->input('user_id');
+        $workout->date=$request->input('date');
+        $workout->location=$request->input('location');
+        $workout->exercise_name=$request->input('exercise_name');
+        $workout->reps=$request->input('reps');
+        $workout->sets=$request->input('sets');
+        $user=User::findorfail($request->input('user_id'));
+        $user->WorkOutSessions()->save($workout);
     }
 
     /**

@@ -2,23 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Instructors;
+use App\Gyms;
+use App\Http\Resources\GymResource;
+use App\User;
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Http\Resources\InstructorResource;
 
-class InstructorController extends Controller
+class GymController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public $success_status=200;
     public function index()
     {
         //
-        $instructors=Instructors::all();
-        return InstructorResource::collection($instructors);
+        $gyms=Gyms::all();
+        return GymResource::collection($gyms);
     }
 
     /**
@@ -40,15 +41,16 @@ class InstructorController extends Controller
     public function store(Request $request)
     {
         //
-        $instructor=new Instructors();
-        $instructor->FirstName=$request->input('FirstName');
-        $instructor->LastName=$request->input('LastName');
-        $instructor->GymId=$request->input('GymId');
-        $instructor->PhoneNumber=$request->input('PhoneNumber');
-        $instructor->Email=$request->input('Email');
-        $instructor->Gender=$request->input('Gender');
-        $instructor->PhotoURL=$request->input('PhotoURL');
-        $instructor->save();
+        $gym=new Gyms();
+        $gym->Latitude=$request->input('Latitude');
+        $gym->Longitude=$request->input('Latitude');
+        $gym->GymName=$request->input('GymName');
+        $gym->Rating=$request->input('Rating');
+        $gym->PhoneNumber=$request->input('PhoneNumber');
+        $gym->Open=$request->input('Open');
+        $gym->Close=$request->input('Close');
+        $gym->save();
+
     }
 
     /**
@@ -71,6 +73,11 @@ class InstructorController extends Controller
     public function edit($id)
     {
         //
+        $gym=Gyms::findorfail($id);
+        return response()->json(['Gym'=>$gym],$this->success_status);
+
+
+
     }
 
     /**

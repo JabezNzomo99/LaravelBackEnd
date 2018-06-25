@@ -3,11 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Gyms;
 
 class Instructors extends Model
 {
     //
     protected $fillable=[
-        'FirstName','LastName','PhoneNumber', 'Email','PhotoURL'
+        'GymId','FirstName','LastName','PhoneNumber', 'Email','Gender','PhotoURL'
     ];
+    public function gym(){
+        return $this->belongsTo('App\Gyms','GymId','id');
+    }
 }
