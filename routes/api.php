@@ -18,6 +18,7 @@ Route::post('/Login','UserController@login');
 Route::post('/Register','UserController@register');
 Route::get('/ShowUsers','UserController@index');
 Route::post('/AddInstructor','InstructorController@store');
+Route::post('/DeleteInstructor/{id}','InstructorController@destroy');
 Route::post('/AddGym','GymController@store');
 Route::group(['middleware' => 'auth:api'], function(){
     Route::post('UserDetails', 'UserController@details');

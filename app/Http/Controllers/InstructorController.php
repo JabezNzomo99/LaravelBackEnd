@@ -102,6 +102,12 @@ class InstructorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $instructor=Instructors::findorfail($id);
+        if($instructor->delete()){
+            return response()->json(['response'=>'Instructor has been deleted the Gym Network successfully'],$this->success_status);
+        }else{
+            return response()->json(['response'=>'Instructor does not exist'],$this->error_status);
+
+        }
     }
 }
