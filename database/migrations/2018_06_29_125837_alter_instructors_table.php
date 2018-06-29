@@ -15,7 +15,7 @@ class AlterInstructorsTable extends Migration
     {
         Schema::table('instructors', function (Blueprint $table) {
             //
-            $table->string('PhotoURL')->change();
+            $table->longText('PhotoURL')->change();
 
         });
     }
