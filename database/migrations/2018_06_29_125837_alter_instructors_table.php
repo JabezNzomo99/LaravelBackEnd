@@ -29,6 +29,8 @@ class AlterInstructorsTable extends Migration
     {
         Schema::table('Instructors', function (Blueprint $table) {
             //
+            $table->binary('PhotoURL');
+
         });
     }
 }

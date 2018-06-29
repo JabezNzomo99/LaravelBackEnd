@@ -29,6 +29,7 @@ class AlterTableInstructors extends Migration
     {
         Schema::table('instructors', function (Blueprint $table) {
             //
+
         });
     }
 }
