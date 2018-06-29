@@ -43,7 +43,7 @@ class GymController extends Controller
         //
         $gym=new Gyms();
         $gym->Latitude=$request->input('Latitude');
-        $gym->Longitude=$request->input('Latitude');
+        $gym->Longitude=$request->input('Longitude');
         $gym->GymName=$request->input('GymName');
         $gym->Rating=$request->input('Rating');
         $gym->PhoneNumber=$request->input('PhoneNumber');
