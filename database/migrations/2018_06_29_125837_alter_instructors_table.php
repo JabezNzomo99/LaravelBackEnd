@@ -15,7 +15,7 @@ class AlterInstructorsTable extends Migration
     {
         Schema::table('instructors', function (Blueprint $table) {
             //
-            $table->string('PhotoURL');
+            $table->string('PhotoURL')->change();
 
         });
     }
@@ -29,7 +29,6 @@ class AlterInstructorsTable extends Migration
     {
         Schema::table('Instructors', function (Blueprint $table) {
             //
-            $table->binary('PhotoURL');
 
         });
     }
