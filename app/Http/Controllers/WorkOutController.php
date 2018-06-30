@@ -51,7 +51,7 @@ class WorkOutController extends Controller
         $workout->reps=$request->input('reps');
         $workout->sets=$request->input('sets');
         $user=User::findorfail($request->input('user_id'));
-        $workout->User()->save($workout);
+        $user->WorkOutSessions()->save($workout);
     }
 
     /**

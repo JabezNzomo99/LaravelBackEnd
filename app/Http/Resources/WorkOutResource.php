@@ -15,12 +15,12 @@ class WorkOutResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'user_id'=>$request->user_id,
-            'date'=>$request->date,
-            'location'=>$request->location,
-            'exercise_name'=>$request->exercise_name,
-            'reps'=>$request->reps,
-            'sets'=>$request->sets,
+            'user_id'=>$this->user_id,
+            'date'=>$this->date,
+            'location'=>$this->location,
+            'exercise_name'=>$this->exercise_name,
+            'reps'=>$this->reps,
+            'sets'=>$this->sets,
         ];
     }
 }
