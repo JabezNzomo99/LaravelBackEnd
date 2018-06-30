@@ -19,6 +19,8 @@ class WorkOutController extends Controller
     public function index()
     {
         //
+        $workout=WorkOutSessions::all();
+        return WorkOutResource::collection($workout);
 
     }
 
