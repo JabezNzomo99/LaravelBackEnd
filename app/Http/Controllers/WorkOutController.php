@@ -17,8 +17,7 @@ class WorkOutController extends Controller
     public function index()
     {
         //
-        $workout=WorkOutSessions::all();
-        return WorkOutResource::collection($workout);
+
     }
 
     /**
@@ -60,6 +59,8 @@ class WorkOutController extends Controller
     public function show($id)
     {
         //
+        $workout=DB::table('work_out_sessions')->where('user_id',$id)->get();
+        return WorkOutResource::collection($workout);
     }
 
     /**
