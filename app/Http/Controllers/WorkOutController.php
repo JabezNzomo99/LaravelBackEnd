@@ -64,7 +64,7 @@ class WorkOutController extends Controller
     {
         //
         $workout=DB::table('work_out_sessions')->where('user_id',$request->input('user_id'))->get();
-        return WorkOutResource::collection($workout);
+        return response()->json(['response'=>$workout,$this->success_status]);
     }
 
     /**
