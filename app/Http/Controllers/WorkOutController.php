@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Resources\WorkOutResource;
 use App\User;
 use App\WorkOutSessions;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class WorkOutController extends Controller
 {
