@@ -16,6 +16,7 @@ class WorkOutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $success_staus=200;
     public function index()
     {
         //
