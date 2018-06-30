@@ -60,10 +60,10 @@ class WorkOutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
         //
-        $workout=DB::table('work_out_sessions')->where('user_id',$id)->get();
+        $workout=DB::table('work_out_sessions')->where('user_id',$request->input('user_id'))->get();
         return WorkOutResource::collection($workout);
     }
 
