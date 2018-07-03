@@ -17,6 +17,7 @@ class WorkOutController extends Controller
      * @return \Illuminate\Http\Response
      */
     public $success_status=200;
+    public $error_status=401;
     public function index()
     {
         //
@@ -52,7 +53,12 @@ class WorkOutController extends Controller
         $workout->reps=$request->input('reps');
         $workout->sets=$request->input('sets');
         $user=User::findorfail($request->input('user_id'));
-        $user->WorkOutSessions()->save($workout);
+        if($user->WorkOutSessions()->save($workout)){
+            return response()->json(['response'=>'Work Out has been saved'],$this->success_status);
+        }else{
+            return response()->json(['response'=>'Work Out has been saved'],$this->error_status);
+
+        }
     }
 
     /**
