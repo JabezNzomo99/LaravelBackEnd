@@ -25,7 +25,6 @@ Route::post('/AllWorkOuts','WorkOutController@index');
 Route::group(['middleware' => 'auth:api'], function(){
     Route::post('UserDetails', 'UserController@details');
     Route::get('/Instructors','InstructorController@index');
-
     Route::post('/ShowWorkouts','WorkOutController@show');
     Route::post('/ShowGyms','GymController@index');
 

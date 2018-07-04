@@ -16,7 +16,7 @@ class AlterTableUser extends Migration
         Schema::table('users', function (Blueprint $table) {
             //
             $table->string('UserName');
-            $table->string('Home')->nullable();
+            $table->string('email')->nullable();
             $table->string('PhoneNumber')->nullable();
             $table->integer('Age')->nullable();
             $table->string('Gender')->nullable();

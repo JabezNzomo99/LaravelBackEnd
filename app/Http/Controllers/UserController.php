@@ -105,9 +105,26 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
         //
+        $user=User::findorfail($request->input("user_id"));
+        $user->FirstName=$request->input("FirstName");
+        $user->LastName=$request->input("LastName");
+        $user->email=$request->input("email");
+        $user->UserName=$request->input("UserName");
+        $user->Home=$request->input("Home");
+        $user->PhoneNumber=$request->input("PhoneNumber");
+        $user->Age=$request->input("Age");
+        $user->Gender=$request->input("Gender");
+        $user->Weight=$request->input("Weight");
+        $user->TargetWeight=$request->input("TargetWeight");
+        if($user->save()){
+            return response()->json(['response'=>'User Profile Saved'],$this->success_status);
+        }else{
+            return response()->json(['response'=>'An error occurred'],$this->error_status);
+        }
+
     }
 
     /**
