@@ -103,8 +103,15 @@ class WorkOutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
         //
+        $workout=WorkOutSessions::findorfail($request->input("workout_id"));
+        if($workout->delete()){
+            return response()->json(['response'=>'Work Out Deleted'],$this->success_status);
+        }else{
+            return response()->json(['error'=>'An error occured'],$this->error_status);
+        }
+
     }
 }

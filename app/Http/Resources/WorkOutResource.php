@@ -15,6 +15,7 @@ class WorkOutResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id'=>$this->id,
             'user_id'=>$this->user_id,
             'date'=>$this->date,
             'location'=>$this->location,
